@@ -33,3 +33,59 @@ int main() {
           carta2.estado, carta2.codigo, carta2.cidade, carta2.populacao);
 
    return 0;
+
+
+*Nivel avançado*
+
+struct Cidade {
+   char estado[50];
+   int codigo;
+   char nome[50];
+   int populacao;
+   double pib;
+   double area;
+   int pontos_turisticos;
+};
+
+double calcularDensidadePopulacional(struct Cidade cidade) {
+   return cidade.populacao / cidade.area;
+
+double calcularPIBPerCapita(struct Cidade cidade) {
+   return cidade.pib / cidade.populacao;
+
+
+int main() {
+   struct Cidade minhaCidade;
+
+   printf("Digite o estado: ");
+   scanf("%s", minhaCidade.estado);
+
+   printf("Digite o código: ");
+   scanf("%d", &minhaCidade.codigo);
+
+   printf("Digite o nome da cidade: ");
+   scanf("%s", minhaCidade.nome);
+
+   printf("Digite a população: ");
+   scanf("%d", &minhaCidade.populacao);
+
+   printf("Digite o PIB: ");
+   scanf("%lf", &minhaCidade.pib);
+
+   printf("Digite a área: ");
+   scanf("%lf", &minhaCidade.area);
+
+   printf("Digite o número de pontos turísticos: ");
+   scanf("%d", &minhaCidade.pontos_turisticos);
+
+   double densidade = calcularDensidadePopulacional(minhaCidade);
+   double pibPerCapita = calcularPIBPerCapita(minhaCidade);
+
+   printf("Densidade Populacional: %.2f\n", densidade);
+   printf("PIB per Capita: %.2f\n", pibPerCapita);
+
+   return 0;
+}
+
+
+
